@@ -16,7 +16,7 @@ import org.openjdk.jmh.infra.Blackhole;
 
 public class BenchmarkCharAtVSGetChars {
 
-    @State(Scope.Thread)
+    @State(Scope.Benchmark)
     public static class Data {
 
         String value;
@@ -24,7 +24,7 @@ public class BenchmarkCharAtVSGetChars {
 
         @Setup
         public void setup() {
-            byte[] buf = new byte[250];
+            byte[] buf = new byte[50];
             new Random(1234).nextBytes(buf);
             value = new String(buf, Charset.forName("UTF-8"));
         }
